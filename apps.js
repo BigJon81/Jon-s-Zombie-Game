@@ -32,7 +32,7 @@ startGame()
 
 const createGameBoard = () => {
   for (let index = 0; index < width*width; index++) {
-    const square = document.createElement('div')
+    const square = document.createElement('div')  
     square.classList.add("Unclicked")
     square.id = index;
     const mathRandom = Math.random()
@@ -43,6 +43,10 @@ const createGameBoard = () => {
     }
     gridContainer.appendChild(square) 
     userSquares.push(square)
+    const image = document.createElement('img')
+    square.appendChild(image)
+    image.style.width = "38px";
+    image.style.height = "38px";
 
     square.addEventListener("click", (event) => {
       square.classList.replace("Unclicked", "Clicked")
@@ -50,11 +54,14 @@ const createGameBoard = () => {
       console.log(clickCount)
       if (mathRandom <= 0.33) {  
         square.classList.add(".HIT")
-        square.style.backgroundColor = "red";
+        image.src = '/image.jpg'
         console.log("HIT!")
       } else {
         square.classList.add(".MISS")
         square.style.backgroundColor = "black"
+        square.innerHTML = "MISS";
+        square.style.fontSize = "10px"
+        square.style.textAlign = "center"
         console.log("MISS!")
       }
     })
