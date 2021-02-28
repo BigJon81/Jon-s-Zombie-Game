@@ -54,7 +54,8 @@ const createGameBoard = () => {
       console.log(clickCount)
       if (mathRandom <= 0.33) {  
         square.classList.add(".HIT")
-        image.src = '/image.jpg'
+        square.style.backgroundColor = "red"
+        image.src = './image.jpg'
         console.log("HIT!")
       } else {
         square.classList.add(".MISS")
